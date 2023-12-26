@@ -1,5 +1,5 @@
-let screenW = window.screen.width;
-let screenH = window.screen.height;
+let screenW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+let screenH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 var cWidth = screenW * 0.95;
 var cHeight = screenH * 0.95;
 
