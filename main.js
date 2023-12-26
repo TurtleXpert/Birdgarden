@@ -308,6 +308,7 @@ function init(){
     // players.push(new Player( spawn.x, spawn.y, {frames:[imgs.TurtleI1, imgs.TurtleI2], fram: 0, cd: 20, cdcount: 20, name: "idle"}));
     
     document.addEventListener("mousedown", (e) => {
+        console.log(e)
         let pt = new Object( e.touches[0].pageX, e.touches[0].pageY, 0, 0 )
         if ( touchTime <= 50 ){
             fpause = false;
