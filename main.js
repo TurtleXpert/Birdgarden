@@ -388,17 +388,18 @@ function init(){
         }
         saveData();
     })
-    document.addEventListener("mousemove", (e) => {
+    document.addEventListener("touchmove", (e) => {
+        e.preventDefault();
         saveData();
         if ( mode == "fly" && birds.length > 0 ){
-            var ty = e.offsetY - cam.height/2;
+            var ty = e.touches[0].pageY - cam.height/2;
             if ( Math.abs( ty - birds[0].y ) <= cam.height/10 ){
-                birds[0].y = e.offsetY - cam.height/2;
+                birds[0].y = e.touches[0].pageY - cam.height/2;
             }
         }
         if ( mode == "herd" ){
-            var tx = e.offsetX - cam.width/2;
-            var ty = e.offsetY - cam.height/2;
+            var tx = e.touches[0].pageX - cam.width/2;
+            var ty = e.touches[0].pageY - cam.height/2;
             for ( let b in birds ){
                 let xdif = birds[b].x - tx;
                 let ydif = birds[b].y - ty;
@@ -409,8 +410,8 @@ function init(){
 
         }
         if ( mode == "throw" ){
-            tch.x = e.offsetX - cam.width/2;
-            tch.y = e.offsetY - cam.height/2;
+            tch.x = e.touches[0].pageX - cam.width/2;
+            tch.y = e.touches[0].pageY - cam.height/2;
         }
     })
 
