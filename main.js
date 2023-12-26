@@ -307,7 +307,7 @@ function init(){
 
     // players.push(new Player( spawn.x, spawn.y, {frames:[imgs.TurtleI1, imgs.TurtleI2], fram: 0, cd: 20, cdcount: 20, name: "idle"}));
     
-    window.addEventListener("touchstart", (e) => {
+    window.addEventListener("mousedown", (e) => {
         let pt = new Object( e.touches[0].pageX, e.touches[0].pageY, 0, 0 )
         if ( touchTime <= 50 ){
             fpause = false;
@@ -388,7 +388,7 @@ function init(){
         }
         saveData();
     })
-    window.addEventListener("touchmove", (e) => {
+    window.addEventListener("mousemove", (e) => {
         saveData();
         if ( mode == "fly" && birds.length > 0 ){
             var ty = e.touches[0].pageY - cam.height/2;
@@ -414,7 +414,7 @@ function init(){
         }
     })
 
-    window.addEventListener("touchend", (e) => {
+    window.addEventListener("mouseup", (e) => {
         saveData();
         if ( mode == "throw" && throwTimer <= 0 ){
             if ( birds.length > 0 ){
