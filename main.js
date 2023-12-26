@@ -308,15 +308,14 @@ function init(){
     // players.push(new Player( spawn.x, spawn.y, {frames:[imgs.TurtleI1, imgs.TurtleI2], fram: 0, cd: 20, cdcount: 20, name: "idle"}));
     
     document.addEventListener("mousedown", (e) => {
-        console.log(e)
-        let pt = new Object( e.touches[0].pageX, e.touches[0].pageY, 0, 0 )
+        let pt = new Object( e.offsetX, e.offsetY, 0, 0 )
         if ( touchTime <= 50 ){
             fpause = false;
         }
         touchTime = 0;
         if ( mode == "herd" ){
-            var tx = e.touches[0].pageX - cam.width/2;
-            var ty = e.touches[0].pageY - cam.height/2;
+            var tx = e.offsetX - cam.width/2;
+            var ty = e.offsetY - cam.height/2;
             for ( let b in birds ){
                 let xdif = birds[b].x - tx;
                 let ydif = birds[b].y - ty;
@@ -326,14 +325,14 @@ function init(){
             }
 
         }
-        if ( e.touches[0].pageX > cWidth *0.8 && e.touches[0].pageX < cWidth *0.9 && e.touches[0].pageY > 0 && e.touches[0].pageY < cWidth *0.08){
+        if ( e.offsetX > cWidth *0.8 && e.offsetX < cWidth *0.9 && e.offsetY > 0 && e.offsetY < cWidth *0.08){
             if ( !exploring ){
                 initExp();
             }else{
                 contExp();
             }
         }
-        if ( e.touches[0].pageX > cWidth *0.9 && e.touches[0].pageX < cWidth *1.0 && e.touches[0].pageY > 0 && e.touches[0].pageY < cWidth *0.08){
+        if ( e.offsetX > cWidth *0.9 && e.offsetX < cWidth *1.0 && e.offsetY > 0 && e.offsetY < cWidth *0.08){
             if ( exploring ){
                 mode = "hub";
                 savedata.Fertiliser += stages;
@@ -384,22 +383,22 @@ function init(){
         }
         if (mode == "throw"){
             thro = true;
-            tch.x = e.touches[0].pageX - cam.width/2;
-            tch.y = e.touches[0].pageY - cam.height/2;
+            tch.x = e.offsetX - cam.width/2;
+            tch.y = e.offsetY - cam.height/2;
         }
         saveData();
     })
     document.addEventListener("mousemove", (e) => {
         saveData();
         if ( mode == "fly" && birds.length > 0 ){
-            var ty = e.touches[0].pageY - cam.height/2;
+            var ty = e.offsetY - cam.height/2;
             if ( Math.abs( ty - birds[0].y ) <= cam.height/10 ){
-                birds[0].y = e.touches[0].pageY - cam.height/2;
+                birds[0].y = e.offsetY - cam.height/2;
             }
         }
         if ( mode == "herd" ){
-            var tx = e.touches[0].pageX - cam.width/2;
-            var ty = e.touches[0].pageY - cam.height/2;
+            var tx = e.offsetX - cam.width/2;
+            var ty = e.offsetY - cam.height/2;
             for ( let b in birds ){
                 let xdif = birds[b].x - tx;
                 let ydif = birds[b].y - ty;
@@ -410,8 +409,8 @@ function init(){
 
         }
         if ( mode == "throw" ){
-            tch.x = e.touches[0].pageX - cam.width/2;
-            tch.y = e.touches[0].pageY - cam.height/2;
+            tch.x = e.offsetX - cam.width/2;
+            tch.y = e.offsetY - cam.height/2;
         }
     })
 
