@@ -316,7 +316,6 @@ function init(){
         if ( mode == "herd" ){
             var tx = e.touches[0].pageX - cam.width/2;
             var ty = e.touches[0].pageY - cam.height/2;
-            savedata.Fertiliser = tx;
             for ( let b in birds ){
                 let xdif = birds[b].x - tx;
                 let ydif = birds[b].y - ty;
