@@ -1,7 +1,7 @@
-// let screenW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-// let screenH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-let screenW = 2160;
-let screenH = 1620;
+let screenW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+let screenH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+// let screenW = 2160;
+// let screenH = 1620;
 var cWidth = screenW * 1;
 var cHeight = screenH * 1;
 
