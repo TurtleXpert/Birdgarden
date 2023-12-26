@@ -2,8 +2,8 @@
 // let screenH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 let screenW = 2160;
 let screenH = 1620;
-var cWidth = screenW * 0.95;
-var cHeight = screenH * 0.95;
+var cWidth = screenW * 1;
+var cHeight = screenH * 1;
 
 class Bird{
     constructor ( x, y, image, tx, ty ){
