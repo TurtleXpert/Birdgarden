@@ -415,7 +415,8 @@ function init(){
         }
     })
 
-    document.addEventListener("mouseup", (e) => {
+    document.addEventListener("touchend", (e) => {
+        e.preventDefault();
         saveData();
         if ( mode == "throw" && throwTimer <= 0 ){
             if ( birds.length > 0 ){
